@@ -43,6 +43,7 @@ abstract class BaseController extends Controller
      */
     // protected $session;
 
+    protected $data = null;
     /**
      * Constructor.
      */
@@ -54,5 +55,15 @@ abstract class BaseController extends Controller
         // Preload any models, libraries, etc, here.
 
         // E.g.: $this->session = \Config\Services::session();
+        // $this->database = \Config\
+    }
+
+    protected function render($fileName = 'index')
+    {
+        $class_name = get_class($this);
+        $reflection_class = new \ReflectionClass($class_name);
+        $namespace = $reflection_class->getNamespaceName();
+        $class = str_replace("$namespace\\", '', $class_name);
+        return view(strtolower($class) . '/' . $fileName, $this->data);
     }
 }
