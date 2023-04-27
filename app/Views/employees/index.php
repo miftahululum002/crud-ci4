@@ -9,7 +9,8 @@
                 <tr>
                     <th>No</th>
                     <th>Nama</th>
-                    <th>NIM</th>
+                    <th>Nomor</th>
+                    <th>Email</th>
                     <th>Jenis Kelamin</th>
                     <th>Alamat</th>
                 </tr>
@@ -20,7 +21,8 @@
                         <tr>
                             <td><?= ($key + 1) ?></td>
                             <td><?= $employee['name'] ?></td>
-                            <td><?= $employee['nim'] ?></td>
+                            <td><?= $employee['number'] ?></td>
+                            <td><?= $employee['email'] ?></td>
                             <td><?= $employee['gender'] ?></td>
                             <td><?= $employee['address'] ?></td>
                         </tr>

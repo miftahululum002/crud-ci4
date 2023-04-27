@@ -96,6 +96,9 @@ defined('AUTHOR_NAME') || define('AUTHOR_NAME', 'Miftahul Ulum');
 defined('AUTHOR_GITHUB') || define('AUTHOR_GITHUB', 'https://miftahululum002.github.io');
 defined('AUTHOR_IG') || define('AUTHOR_IG', 'https://instagram.com/miftahululum002/');
 
+$protocol = null;
 $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https://' . $_SERVER['HTTP_HOST'] : 'http://' . $_SERVER['HTTP_HOST'];
 defined('BASE_URL') || define('BASE_URL', $protocol);
 defined('APP_NAME') || define('APP_NAME', 'CRUD');
+defined('DEFAULT_PASSWORD') || define('DEFAULT_PASSWORD', '12345');
+defined('DEFAULT_HASH') || define('DEFAULT_HASH', 'SHA256');

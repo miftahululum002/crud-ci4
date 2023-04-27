@@ -6,15 +6,15 @@ use CodeIgniter\Model;
 
 class Employee extends Model
 {
-    protected $table            = 'employee';
+    protected $table            = 'employees';
     protected $primaryKey       = 'id';
     protected $allowedFields    = [
         'name',
-        'nim',
+        'email',
+        'number',
         'gender',
         'address',
     ];
-    // protected $returnType    = \App\Entities\Employee::class;
     protected $useTimestamps = true;
     protected $useAutoIncrement = true;
 }
