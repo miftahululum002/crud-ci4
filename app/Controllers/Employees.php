@@ -25,6 +25,8 @@ class Employees extends BaseController
     {
         $title = 'Tambah Pegawai';
         $this->data['title'] = $title;
+        $lastNumber = generateEmployeeNumber();
+        $this->data['last_number'] = $lastNumber;
         return $this->render('add');
     }
 

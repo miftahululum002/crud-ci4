@@ -102,3 +102,4 @@ defined('BASE_URL') || define('BASE_URL', $protocol);
 defined('APP_NAME') || define('APP_NAME', 'CRUD');
 defined('DEFAULT_PASSWORD') || define('DEFAULT_PASSWORD', '12345');
 defined('DEFAULT_HASH') || define('DEFAULT_HASH', 'SHA256');
+defined('PREFIX_EMPLOYEE_NUMBER') || define('PREFIX_EMPLOYEE_NUMBER', 'EMP');

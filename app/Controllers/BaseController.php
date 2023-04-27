@@ -44,6 +44,7 @@ abstract class BaseController extends Controller
     protected $session;
 
     protected $data = null;
+    public $db = null;
     /**
      * Constructor.
      */
@@ -53,10 +54,12 @@ abstract class BaseController extends Controller
         parent::initController($request, $response, $logger);
 
         // Preload any models, libraries, etc, here.
+        register_CI($this);
         $this->data['title'] = !empty($this->data['title']) ? $this->data['title'] : 'index';
         // E.g.: $this->session = \Config\Services::session();
         // $this->database = \Config\
         $this->session = \Config\Services::session();
+        $this->db = \Config\Database::connect();
     }
 
     /**

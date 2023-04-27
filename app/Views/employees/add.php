@@ -10,20 +10,24 @@
                 <input type="text" name="name" id="name" class="form-control" placeholder="Nama">
             </div>
             <div class="col-md-6 mb-3">
-                <label for="nim">NIM <?= $requiredLabel ?></label>
-                <input type="text" name="nim" id="nim" class="form-control" placeholder="Nomor Induk Mahasiswa">
+                <label for="number">No Pegawai <?= $requiredLabel ?> (otomatis)</label>
+                <input type="text" name="number" id="number" class="form-control" value="<?= setDefaultValue($last_number) ?>" placeholder="No pegawai" readonly>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="email">Email <?= $requiredLabel ?></label>
+                <input type="email" name="email" id="email" class="form-control" placeholder="Email">
             </div>
             <div class="col-md-6 mb-3">
                 <label>Jenis Kelamin <?= $requiredLabel ?></label>
-                <select class="form-select mb-3" name="gender" id="gender">
+                <select class="form-select" name="gender" id="gender">
                     <option disabled selected>Pilih Jenis Kelamin</option>
                     <option value="Laki-laki">Laki-laki</option>
                     <option value="Perempuan">Perempuan</option>
                 </select>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="col-md-12 mb-3">
                 <label for="address">Alamat <?= $requiredLabel ?></label>
-                <input type="text" name="address" id="address" class="form-control" placeholder="Alamat">
+                <textarea placeholder="Alamat" name="address" id="address" class="form-control"></textarea>
             </div>
         </div>
         <div>

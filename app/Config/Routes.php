@@ -48,6 +48,7 @@ if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
 
+$routes->get('/uji', 'Uji::index');
 $routes->get('/employees', 'Employees::index');
 $routes->get('/employees/add', 'Employees::add');
 $routes->post('/employees/store', 'Employees::store');
