@@ -53,11 +53,17 @@ abstract class BaseController extends Controller
         parent::initController($request, $response, $logger);
 
         // Preload any models, libraries, etc, here.
-
+        $this->data['title'] = !empty($this->data['title']) ? $this->data['title'] : 'index';
         // E.g.: $this->session = \Config\Services::session();
         // $this->database = \Config\
     }
 
+    /**
+     * render
+     *
+     * @param  string $fileName view
+     * @return void
+     */
     protected function render($fileName = 'index')
     {
         $class_name = get_class($this);
