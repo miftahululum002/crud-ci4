@@ -14,7 +14,10 @@ class Employee extends Model
         'number',
         'gender',
         'address',
+        'id_user',
     ];
     protected $useTimestamps = true;
     protected $useAutoIncrement = true;
+    protected $createdField  = 'created_at';
+    protected $updatedField  = 'updated_at';
 }

@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Models\Employee;
-use \Config\Services;
 
 class Employees extends BaseController
 {
@@ -27,32 +26,50 @@ class Employees extends BaseController
         $this->data['title'] = $title;
         $lastNumber = generateEmployeeNumber();
         $this->data['last_number'] = $lastNumber;
+        $validation = \Config\Services::validation();
+        $this->data['validation'] = $validation;
         return $this->render('add');
     }
 
     public function store()
     {
-        $validation = Services::validation();
-        $validation->setRule('username', 'Username', 'required|min_length[3]');
-        $validation->setRule('name', 'name', "required");
-        $validation->setRule('nim', 'nim', 'required');
-        $validation->setRule('gender', 'gender', 'required|in_list[Laki-laki,Perempuan]');
-        $validation->setRule('address', 'address', 'required');
+        $rules = [
+            'name' => [
+                'label' => 'Nama',
+                'rules' => "required"
+            ],
+            'email' => [
+                'label' => 'Email',
+                'rules' => "required|valid_email|is_unique[user.email]|is_unique[employees.email]"
+            ],
+            'number' => [
+                'label' => 'No Pegawai',
+                'rules' => 'required|is_unique[employees.number]'
+            ],
+            'gender' => [
+                'label' => 'Jenis Kelamin',
+                'rules' => 'required|in_list[Laki-laki,Perempuan]'
+            ],
+            'address' => [
+                'label' => 'Alamat',
+                'rules' => 'required'
+            ],
+        ];
 
-        $validate = $validation->run();
-        if (!$validate) {
-            $errors = $validation->getErrors();
-            $this->data['errors'] = $errors;
-            redirect('employees/add');
+        if (!$this->validate($rules)) {
+            $errors = \Config\Services::validation();
+            dd($errors);
+            return redirect()->to('employees/add')->withInput()->with('validation', $errors);
         }
         $formData = $this->request->getPost();
         $data = $formData;
+        $data['number'] = generateEmployeeNumber();
         $store = $this->employee->insert($data);
         if ($store) {
-            $this->session->setFlashdata('success', 'Tambah pegawai berhasil');
+            session()->setFlashdata('success', 'Tambah pegawai berhasil');
             redirect('employees');
         } else {
-            $this->session->setFlashdata('error', 'Tambah pegawai gagal');
+            session()->setFlashdata('error', 'Tambah pegawai gagal');
             redirect('employees/add');
         }
     }

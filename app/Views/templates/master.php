@@ -219,6 +219,18 @@
             <main class="content m-0">
                 <div class="container-fluid p-0">
                     <h1 class="h3 mb-3"><?= !empty($title) ? $title : 'index' ?></h1>
+                    <?php if (session()->getFlashData('success')) : ?>
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <b>Perhatian</b> <?= session()->getFlashData('success') ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (session()->getFlashData('error')) : ?>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <b>Perhatian</b> <?= session()->getFlashData('error') ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php endif; ?>
                     <?= $this->renderSection('content') ?>
                 </div>
             </main>

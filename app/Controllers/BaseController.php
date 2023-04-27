@@ -41,7 +41,7 @@ abstract class BaseController extends Controller
      * Be sure to declare properties for any property fetch you initialized.
      * The creation of dynamic property is deprecated in PHP 8.2.
      */
-    protected $session;
+    // protected $session;
 
     protected $data = null;
     public $db = null;
@@ -58,7 +58,8 @@ abstract class BaseController extends Controller
         $this->data['title'] = !empty($this->data['title']) ? $this->data['title'] : 'index';
         // E.g.: $this->session = \Config\Services::session();
         // $this->database = \Config\
-        $this->session = \Config\Services::session();
+        // $this->session = \Config\Services::session();
+        session();
         $this->db = \Config\Database::connect();
     }
 
@@ -70,6 +71,7 @@ abstract class BaseController extends Controller
      */
     protected function render($fileName = 'index')
     {
+        session();
         $this->setDataArgumen();
         $class_name = get_class($this);
         $reflection_class = new \ReflectionClass($class_name);
