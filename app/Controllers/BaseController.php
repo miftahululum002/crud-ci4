@@ -66,10 +66,16 @@ abstract class BaseController extends Controller
      */
     protected function render($fileName = 'index')
     {
+        $this->setDataArgumen();
         $class_name = get_class($this);
         $reflection_class = new \ReflectionClass($class_name);
         $namespace = $reflection_class->getNamespaceName();
         $class = str_replace("$namespace\\", '', $class_name);
         return view(strtolower($class) . '/' . $fileName, $this->data);
+    }
+
+    protected function setDataArgumen()
+    {
+        $this->data['requiredLabel'] = '<b class="text-danger">*</b>';
     }
 }
