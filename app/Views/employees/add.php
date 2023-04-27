@@ -3,7 +3,7 @@
 <?= $this->endSection() ?>
 <?= $this->section('content') ?>
 <div class="card card-body">
-    <form role="form" action="" method="POST">
+    <form role="form" action="<?= site_url('employees/store') ?>" method="POST">
         <div class="row">
             <div class="col-md-6 mb-3">
                 <label for="name">Nama <?= $requiredLabel ?></label>
@@ -15,7 +15,7 @@
             </div>
             <div class="col-md-6 mb-3">
                 <label>Jenis Kelamin <?= $requiredLabel ?></label>
-                <select class="form-select mb-3">
+                <select class="form-select mb-3" name="gender" id="gender">
                     <option disabled selected>Pilih Jenis Kelamin</option>
                     <option value="Laki-laki">Laki-laki</option>
                     <option value="Perempuan">Perempuan</option>

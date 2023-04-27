@@ -50,3 +50,4 @@ if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
 
 $routes->get('/employees', 'Employees::index');
 $routes->get('/employees/add', 'Employees::add');
+$routes->post('/employees/store', 'Employees::store');
