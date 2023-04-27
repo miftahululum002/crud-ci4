@@ -1,40 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
+<?= $this->extend('templates/master') ?>
+<?= $this->section('headAdditional') ?>
+<?= $this->endSection() ?>
+<?= $this->section('content') ?>
+<div class="row">
+    <div class="col-xl-12 col-xxl-12 d-flex">
+        <div class="card card-body">
+            <h3>Selamat Datang</h3>
+        </div>
+    </div>
+    <div class="col-xl-12 col-xxl-12 d-flex">
+        <div class="w-100">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col mt-0">
+                                    <h5 class="card-title">Semua Pegawai</h5>
+                                </div>
 
-<head>
-    <meta charset="UTF-8">
-    <title><?= !empty($title) ? $title : 'index' ?></title>
-    <meta name="description" content="The small framework with powerful features">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/png" href="/favicon.ico">
-</head>
-
-<body>
-    <h1>Selamat Datang</h1>
-    <table border="1" rules="ALL">
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>Nama</th>
-                <th>NIM</th>
-                <th>Jenis Kelamin</th>
-                <th>Alamat</th>
-            </tr>
-        </thead>
-        <?php if (!empty($employee)) :
-            foreach ($employee as $key => $emp) : ?>
-                <tr>
-                    <td><?= ($key + 1) ?></td>
-                    <td><?= $emp['name'] ?></td>
-                    <td><?= $emp['nim'] ?></td>
-                    <td><?= $emp['gender'] ?></td>
-                    <td><?= $emp['address'] ?></td>
-                </tr>
-        <?php endforeach;
-        endif; ?>
-
-    </table>
-
-</body>
-
-</html>
+                                <div class="col-auto">
+                                    <div class="stat text-primary">
+                                        <i class="align-middle" data-feather="truck"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <h1 class="mt-1 mb-3">2.382</h1>
+                            <div class="mb-0">
+                                <span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> -3.65% </span>
+                                <span class="text-muted">Since last week</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?= $this->endSection() ?>
+<?= $this->section('scriptAdditional') ?>
+<?= $this->endSection() ?>
