@@ -17,11 +17,18 @@
     <title><?= $title ?></title>
 
     <link href="<?= base_url('css/app.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('css/loading.css') ?>" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <?= $this->renderSection('headAdditional') ?>
 </head>
 
 <body>
+    <div id="spinner-front">
+        <img src="<?= base_url('img/ajax-loader.gif') ?>" width="60"><br>
+        Loading...
+    </div>
+    <div id="spinner-back">
+    </div>
     <div class="wrapper">
         <nav id="sidebar" class="sidebar js-sidebar">
             <div class="sidebar-content js-simplebar">
@@ -259,6 +266,20 @@
     </div>
 
     <script src="<?= base_url('js/app.js') ?>"></script>
+    <script>
+        let base_url = '<?= base_url() ?>';
+        let site_url = '<?= site_url() ?>';
+
+        function showLoading() {
+            document.getElementById("spinner-front").classList.add("show");
+            document.getElementById("spinner-back").classList.add("show");
+        }
+
+        function hideLoading() {
+            document.getElementById("spinner-front").classList.remove("show");
+            document.getElementById("spinner-back").classList.remove("show");
+        }
+    </script>
 </body>
 <?= $this->renderSection('scriptAdditional') ?>
 

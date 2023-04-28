@@ -20,6 +20,14 @@ class Employees extends BaseController
         return $this->render('index');
     }
 
+    public function getListData()
+    {
+        $employees = $this->employee->findAll();
+        return $this->response->setJSON($employees);
+        // $this->response->setContentType('application/json');
+        // return $this->response->setStatusCode(200)->setBody(json_encode($employees))->send();
+    }
+
     public function add()
     {
         $title = 'Tambah Pegawai';

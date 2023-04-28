@@ -35,3 +35,8 @@ function setDefaultValue($value = null, $alias = '-')
 {
     return !empty($value) ? $value : $alias;
 }
+function getBaseUrl()
+{
+    $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https://' . $_SERVER['HTTP_HOST'] : 'http://' . $_SERVER['HTTP_HOST'];
+    return $protocol;
+}
